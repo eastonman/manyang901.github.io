@@ -1,0 +1,849 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="notes," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="reveal.js框架是一个基于javascript的演讲框架，官网在reveal.js，可以通过css样式创建各种炫丽的动画和字体，用html语言编辑使得作者可以更专注于内容本身，而默认的样式与此同时可以使表达效果不失观赏性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="revealjs框架">
+<meta property="og:url" content="https://manyang901.github.io/2016/11/02/revealjs框架/index.html">
+<meta property="og:site_name" content="技，术">
+<meta property="og:description" content="reveal.js框架是一个基于javascript的演讲框架，官网在reveal.js，可以通过css样式创建各种炫丽的动画和字体，用html语言编辑使得作者可以更专注于内容本身，而默认的样式与此同时可以使表达效果不失观赏性">
+<meta property="og:updated_time" content="2017-04-23T11:33:06.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="revealjs框架">
+<meta name="twitter:description" content="reveal.js框架是一个基于javascript的演讲框架，官网在reveal.js，可以通过css样式创建各种炫丽的动画和字体，用html语言编辑使得作者可以更专注于内容本身，而默认的样式与此同时可以使表达效果不失观赏性">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://manyang901.github.io/2016/11/02/revealjs框架/"/>
+
+
+
+
+
+  <title> revealjs框架 | 技，术 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-86415399-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">技，术</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">manyang901's blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://manyang901.github.io/2016/11/02/revealjs框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="manyang901">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="技，术">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                revealjs框架
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-02T14:49:42+00:00">
+                2016-11-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/11/02/revealjs框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2016/11/02/revealjs框架/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+             <span id="/2016/11/02/revealjs框架/" class="leancloud_visitors" data-flag-title="revealjs框架">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>reveal.js框架是一个基于javascript的演讲框架，官网在<a href="http://lab.hakim.se/reveal-js/" target="_blank" rel="external">reveal.js</a>，可以通过css样式创建各种炫丽的动画和字体，用html语言编辑使得作者可以更专注于内容本身，而默认的样式与此同时可以使表达效果不失观赏性  </p>
+<a id="more"></a>
+<h1 id="reveal-js-presentation-framework"><a href="#reveal-js-presentation-framework" class="headerlink" title="reveal.js presentation framework"></a>reveal.js presentation framework</h1><h2 id="下载和测试revealjs"><a href="#下载和测试revealjs" class="headerlink" title="下载和测试revealjs"></a>下载和测试revealjs</h2><p>从revealjs的<a href="https://github.com/hakimel/reveal.js/" target="_blank" rel="external">Github</a>上下载zip压缩文件，使用git的同志可以git clone，解压缩完成以后打开目录中的demo.html或者index.html，如果看到revealjs的标题或者”slide 1”就说明框架可以使用了，而且浏览器兼容性正常(revealjs的html使用的是html5标准，旧版浏览器尤其IE9一下的可能会有兼容性问题)  </p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="session语法"><a href="#session语法" class="headerlink" title="session语法"></a>session语法</h3><p>类比于powerpoint 在index.html中每一个单独的（无嵌套）<session></session>块代表了一页，嵌套最多两层，两层的嵌套代表在一页之中有几个分别呈现的内容，页的切换动画，各种字体颜色大小将在后文介绍。其中session中的换行、特殊符号、标题、表格遵循html5的标准  </p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;session&gt;</div><div class="line">  &lt;h1&gt;hello world&lt;/h1&gt;</div><div class="line">  &lt;p&gt;I am using revealjs presentation framework to make my speech&lt;/p&gt;</div><div class="line">&lt;/session&gt;</div></pre></td></tr></table></figure>
+<h3 id="fragment语法"><a href="#fragment语法" class="headerlink" title="fragment语法"></a>fragment语法</h3><p>fragment可以使一页中的一些内容强调或突出<br>有以下几种语法，是在标签的class中定义：  </p>
+<ul>
+<li>class=”fragment grow” 表示变大</li>
+<li>class=”fragment”表示按多一个键才显示出来</li>
+<li>class=”fragment current-visible”显示以后马上又回消失</li>
+<li>class=”fragment shrink”变小</li>
+<li>class=”fragment fade-up”从下往上出现（也可以fade-down left和right）</li>
+<li>class=”fragment fade-out”表示消失</li>
+<li>class=”fragment highlight-red”表示红色高亮（也可以蓝和绿）  </li>
+</ul>
+<p>可以在段落直接使用，也可以在段落中间使用（<span>标签），凡是有标签的都可以使用</span></p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;section&gt;</div><div class="line">  &lt;h2&gt;Fragment Styles&lt;/h2&gt;</div><div class="line">  &lt;p&gt;There&apos;s different types of fragments, like:&lt;/p&gt;</div><div class="line">  &lt;p class=&quot;fragment grow&quot;&gt;grow&lt;/p&gt;</div><div class="line">  &lt;p class=&quot;fragment shrink&quot;&gt;shrink&lt;/p&gt;</div><div class="line">  &lt;p class=&quot;fragment fade-out&quot;&gt;fade-out&lt;/p&gt;</div><div class="line">  &lt;p class=&quot;fragment fade-up&quot;&gt;fade-up (also down, left and right!)&lt;/p&gt;</div><div class="line">  &lt;p class=&quot;fragment current-visible&quot;&gt;current-visible&lt;/p&gt;</div><div class="line">  &lt;p&gt;Highlight &lt;span class=&quot;fragment highlight-red&quot;&gt;red&lt;/span&gt; &lt;span class=&quot;fragment highlight-blue&quot;&gt;blue&lt;/span&gt; &lt;span class=&quot;fragment highlight-green&quot;&gt;green&lt;/span&gt;&lt;/p&gt;</div><div class="line">					&lt;/section&gt;</div></pre></td></tr></table></figure>
+<h3 id="data-transition与data-background-transition语法"><a href="#data-transition与data-background-transition语法" class="headerlink" title="data-transition与data-background-transition语法"></a>data-transition与data-background-transition语法</h3><p>这个是用来控制session与session之间切换的动画的，用css写的，如果属于程序员，可以自行添加，revealjs自带一下几种动画：</p>
+<ul>
+<li>slide</li>
+<li>zoom</li>
+<li>fade</li>
+<li>convex</li>
+<li>concave</li>
+<li>none</li>
+</ul>
+<p>介绍在官网上有，只不过是英文的。<br>使用方法是data-transition=”slide”或data-background-transition=”zoom”之类的  </p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;section data-transition=&quot;slide&quot; data-background=&quot;#4d7e65&quot; data-background-transition=&quot;zoom&quot;&gt;</div><div class="line">  &lt;h2&gt;Background Transitions&lt;/h2&gt;</div><div class="line">  &lt;p&gt;Different background transitions are available via the backgroundTransition option. This one&apos;s called &quot;zoom&quot;.&lt;/p&gt;</div><div class="line">  &lt;pre&gt;&lt;code class=&quot;hljs&quot;&gt;Reveal.configure(&#123; backgroundTransition: &apos;zoom&apos; &#125;)&lt;/code&gt;&lt;/pre&gt;</div><div class="line">&lt;/section&gt;</div></pre></td></tr></table></figure>
+<h3 id="Markdown-支持"><a href="#Markdown-支持" class="headerlink" title="Markdown 支持"></a>Markdown 支持</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/21/$IPC连接/" rel="next" title="$IPC连接">
+                <i class="fa fa-chevron-left"></i> $IPC连接
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/04/跨平台自动同步软件/" rel="prev" title="跨平台自动同步软件">
+                跨平台自动同步软件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="manyang901" />
+          <p class="site-author-name" itemprop="name">manyang901</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#reveal-js-presentation-framework"><span class="nav-number">1.</span> <span class="nav-text">reveal.js presentation framework</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载和测试revealjs"><span class="nav-number">1.1.</span> <span class="nav-text">下载和测试revealjs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.2.</span> <span class="nav-text">语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#session语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">session语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fragment语法"><span class="nav-number">1.2.2.</span> <span class="nav-text">fragment语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data-transition与data-background-transition语法"><span class="nav-number">1.2.3.</span> <span class="nav-text">data-transition与data-background-transition语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-支持"><span class="nav-number">1.2.4.</span> <span class="nav-text">Markdown 支持</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">manyang901</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 89255, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 89255, xid: "2016/11/02/revealjs框架/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/89255/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("o1fikX7UcG3tVqSN07LpxRfD-gzGzoHsz", "H3vCO53duLtitaJO0Dshuy1H");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
